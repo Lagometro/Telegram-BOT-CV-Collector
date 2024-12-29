@@ -15,6 +15,8 @@ The **Telegram Bot CV Collector** is designed to collect CVs from users in separ
 ## Setup Instructions
 1. **Edit `bot.py`:**
     * Open the `bot.py` file and add your bot token and chat ID.
+    * `TOKEN = os.environ.get('BOT_TOKEN', 'your_token')` >>  `TOKEN = 123434324` - same with chat ID.
+    * Remove `import os` line from the code.
 Customize the messages that the bot will send to users.
 2. **Build the Docker Container:**
     * Navigate to the directory containing all the bot files.
