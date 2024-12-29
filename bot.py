@@ -1,9 +1,10 @@
 import sqlite3
+import os
 from telegram import Update, Contact, Document, ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, ConversationHandler
 
-TOKEN = 'your_token'
-GROUP_CHAT_ID = 'you_chat_id'
+TOKEN = os.environ.get('BOT_TOKEN', 'your_token')
+GROUP_CHAT_ID = os.environ.get('GROUP_CHAT_ID', 'you_chat_id')
 
 ASK_NAME, ASK_CONTACT, ASK_RESUME, CONFIRM_SUBMISSION, REVIEW = range(5)
 

@@ -1,6 +1,12 @@
 # Use the official Python image from the Docker Hub
 FROM python:3.11-slim
 
+ARG BOT_TOKEN
+ARG GROUP_CHAT_ID
+
+ENV BOT_TOKEN=$BOT_TOKEN
+ENV GROUP_CHAT_ID=$GROUP_CHAT_ID
+
 # Set the working directory in the container
 WORKDIR /app
 
@@ -18,4 +24,3 @@ RUN chmod +x run.sh
 
 # Command to run the bot
 CMD ["./run.sh"]
-
