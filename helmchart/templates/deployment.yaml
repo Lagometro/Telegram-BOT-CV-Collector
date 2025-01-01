@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tg-cvbot
+  namespace: {{ .Values.namespace.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tg-cvbot-label
+  template:
+    metadata:
+      labels:
+        app: tg-cvbot-label
+    spec:
+      containers:
+      - name: tg-cvbot
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: BOT_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: bot-token
+                key: BOT_TOKEN
+          - name: GROUP_CHAT_ID
+            valueFrom:
+              secretKeyRef:
+                name: group-chat-id
+                key: GROUP_CHAT_ID
+      imagePullSecrets:
+      - name: regcred

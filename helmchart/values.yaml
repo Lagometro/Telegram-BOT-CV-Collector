@@ -1,0 +1,11 @@
+namespace:
+  name: telegram
+
+image:
+  repository: docker.io/login/image-name
+  tag: yourtag
+
+secrets:
+  env:
+    BOT_TOKEN: base64-bottoken
+    GROUP_CHAT_ID: base64-chatid
