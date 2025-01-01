@@ -37,7 +37,6 @@ Build the Docker container using the following command:
 
 ## Note
 * If you need to add the chat ID later (e.g., after the bot is already running), use the command `/my_id @your_bot_name` in the group chat.
+* Other folders, such as `helmchart` or `.github`, are used for development in environments like _Kubernetes_ or _Minikube_. These folders can be safely removed after cloning the repository if they are not relevant to your use case.
 
 Remember to keep your server or local machine running to ensure continuous bot functionality.
-
-Feel free to reach out if you have any questions or need further assistance! 🤖📄
