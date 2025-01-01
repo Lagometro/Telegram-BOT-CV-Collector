@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-env:
-  BOT_TOKEN: '${{ secrets.BOT_TOKEN }}'
-  GROUP_CHAT_ID: '${{ secrets.GROUP_CHAT_ID }}'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,9 +17,7 @@ jobs:
       run: |
         docker build . \
           --file Dockerfile \
-          --build-arg BOT_TOKEN=${{ secrets.BOT_TOKEN }} \
-          --build-arg GROUP_CHAT_ID=${{ secrets.GROUP_CHAT_ID }} \
-          --tag tg-cvbot-scrape:latest
+          --tag telegram-bot-cv:latest
 
     - name: Build and Push to DockerHub
       uses: mr-smithers-excellent/docker-build-push@v6
